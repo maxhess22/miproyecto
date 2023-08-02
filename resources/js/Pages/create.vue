@@ -3,10 +3,6 @@ import { Head, Link, router } from '@inertiajs/vue3';
 import { useForm } from '@inertiajs/vue3';
 import Swal from 'sweetalert2'
 
-
-    
-
-
     defineProps({
         auto : Object,
         marca: Object,
@@ -22,6 +18,14 @@ import Swal from 'sweetalert2'
         timer: 1000
     })});
 
+    function encontrarmd(number , array){
+        var modelo = array.filter(e => e.Modelo_ID == number);
+        modelo = modelo.map(e => e.Nombre_Modelo);
+        modelo = modelo.toString();
+        return modelo
+    }
+
+    
     const form = useForm({
         Kilometraje: null,
         Patente: null,
