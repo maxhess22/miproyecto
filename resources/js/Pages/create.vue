@@ -1,22 +1,11 @@
 <script setup>
-    import { Head, Link, router } from '@inertiajs/vue3';
-    import { useForm } from '@inertiajs/vue3';
-    import Swal from 'sweetalert2'
+import { Head, Link, router } from '@inertiajs/vue3';
+import { useForm } from '@inertiajs/vue3';
+import Swal from 'sweetalert2'
 
-    router.on('invalid', () => {Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'invalido',
-        footer: '<a href="">Why do I have this issue?</a>'
-    })});
+
     
-    router.on('success', ()=>{Swal.fire({
-        position: 'center-center',
-        icon: 'success',
-        title: 'Your work has been saved',
-        showConfirmButton: false,
-        timer: 1000
-    })});
+
 
     defineProps({
         auto : Object,
@@ -25,7 +14,13 @@
         errors: Object  
     });
 
-
+    router.on('success', ()=>{Swal.fire({
+        position: 'center-center',
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1000
+    })});
 
     const form = useForm({
         Kilometraje: null,
@@ -33,16 +28,6 @@
         Marca_ID_Auto: null,
         Modelo_ID_Auto: null,
         });
-
-    const enviado = ()=>{Swal.fire({
-                    position: 'center-center',
-                    icon: 'success',
-                    title: 'Your work has been saved',
-                    showConfirmButton: true,
-                    timer: 1500
-                    })}
-
-
 </script>
 
 <template>

@@ -24,6 +24,7 @@
         "vue": "^3.2.31"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.4.0",
         "datatables.net-select": "^1.7.0",
         "sweetalert2": "^11.7.20"
     }

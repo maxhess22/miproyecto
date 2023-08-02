@@ -1,5 +1,10 @@
 <script setup>
-
+import DataTable from 'datatables.net-vue3';
+import DataTablesCore from 'datatables.net-bs5';
+import 'datatables.net-select';
+import 'datatables.net-responsive';
+import { library } from '@fortawesome/fontawesome-svg-core'
+DataTable.use(DataTablesCore);
 
 
 defineProps({
