@@ -1,13 +1,5 @@
 <script setup>
-import DataTable from 'datatables.net-vue3';
 
-import DataTablesCore from 'datatables.net-bs5';
-import 'datatables.net-select';
-import 'datatables.net-responsive';
-
-
- 
-DataTable.use(DataTablesCore);
 
 
 defineProps({
@@ -26,19 +18,19 @@ defineProps({
         <DataTable  class=" table table-striped display">
             <thead>
                 <tr>
-                    <th>patente</th>
-                    <th>Kilometraje</th>
+                    <td>patente</td>
+                    <td>Kilometraje</td>
                     <td> Marca</td>
                     <td> Modelo</td>
                 </tr>
             </thead>
             <tbody>
-            <tr v-for="item in auto">
-                <td> {{ item.Patente }}</td>
-                <td> {{ item.Kilometraje }} km</td>
-                <td> {{ item.Marca_ID_Auto }}</td>
-                <td> {{ item.Modelo_ID_Auto }}</td>
-            </tr>
+                <tr v-for="item in auto">
+                    <td> {{ item.Patente }}</td>
+                    <td> {{ item.Kilometraje }} km</td>
+                    <td> {{ item.Marca_ID_Auto }}</td>
+                    <td> {{ item.Modelo_ID_Auto }}</td>
+                </tr>
             </tbody>
         </DataTable>
     </div>
