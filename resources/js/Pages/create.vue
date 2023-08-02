@@ -18,14 +18,6 @@
         timer: 1000
     })});
 
-    router.on('errors.Patente', (event) => {Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'La execpticon',
-        footer: '<a href="">Why do I have this issue?</a>'
-    })});
-
-
     defineProps({
         auto : Object,
         marca: Object,
