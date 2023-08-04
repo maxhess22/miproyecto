@@ -1,9 +1,12 @@
 <script setup>
+import { Head } from '@inertiajs/vue3';
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net-bs5';
 import 'datatables.net-select';
 import 'datatables.net-responsive';
 import { library } from '@fortawesome/fontawesome-svg-core'
+import AppLayout from '../Layouts/AppLayout.vue';
+
 DataTable.use(DataTablesCore);
 
 
@@ -33,27 +36,29 @@ DataTable.use(DataTablesCore);
 </style>
 <template>
     <Head title="Listar autos" />
-    
-    <div class="col-md-6 offset-3">
-        <DataTable  class=" table table-success table-striped display">
-            <thead>
-                <tr>
-                    <td>patente</td>
-                    <td>Kilometraje</td>
-                    <td> Marca</td>
-                    <td> Modelo</td>
-                    <td></td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="item in auto">
-                    <td> {{ item.Patente }}</td>
-                    <td> {{ item.Kilometraje }} km</td>
-                    <td> {{ encontrarmc(item.Marca_ID_Auto, marca) }}</td>
-                    <td> {{ encontrarmd(item.Modelo_ID_Auto, modelo) }}</td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </DataTable>
-    </div>
+    <AppLayout>
+        
+        <div class="col-md-6 offset-3">
+            <DataTable  class=" table table-striped border border-dark-subtle display">
+                <thead>
+                    <tr>
+                        <td>Patente</td>
+                        <td>Kilometraje</td>
+                        <td> Marca</td>
+                        <td> Modelo</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in auto">
+                        <td> {{ item.Patente }}</td>
+                        <td> {{ item.Kilometraje }} km</td>
+                        <td> {{ encontrarmc(item.Marca_ID_Auto, marca) }}</td>
+                        <td> {{ encontrarmd(item.Modelo_ID_Auto, modelo) }}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </DataTable>
+        </div>
+    </AppLayout>
 </template>

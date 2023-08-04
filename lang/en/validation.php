@@ -167,7 +167,7 @@ return [
             'rule-name' => 'custom-message',
         ],
         'Patente' => ['regex' => 'La patente ingresada no cumple 
-                        con el formato    solicitado [AA-BB-11]',
+                        con el formato solicitado [AA-BB-11]',
                        'max' => 'La cantidad de caracteres ingresada no cumple con el formato [AA-BB-11]' 
                         ]
     ],

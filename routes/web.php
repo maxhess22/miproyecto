@@ -35,8 +35,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+    Route::get('/create', [autoController::class, 'show']);
+    Route::get('/read', [autoController::class, 'index']);
+    Route::post('/store', [autoController::class, 'store']);
 });
 
-Route::get('/create', [autoController::class, 'show']);
-Route::get('/read', [autoController::class, 'index']);
-Route::post('/store', [autoController::class, 'store']);

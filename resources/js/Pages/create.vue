@@ -25,7 +25,7 @@ import Swal from 'sweetalert2'
         return modelo
     }
 
-    
+
     const form = useForm({
         Kilometraje: null,
         Patente: null,
@@ -83,5 +83,19 @@ import Swal from 'sweetalert2'
         
     </div>
 </template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

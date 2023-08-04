@@ -33,8 +33,7 @@ class autoController extends Controller
         ]);
         $datosAuto = request()->except('_token');
         $auto = Auto::create($request->all());
-    
-        
+
         return redirect('/read');
     }
     public  function delete($auto_id) {

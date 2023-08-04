@@ -7,15 +7,19 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
+import { ref, onUpdated, onBeforeUpdate,onMounted, watch } from 'vue';
+
 
 defineProps({
     canResetPassword: Boolean,
     status: String,
 });
 
-const form = useForm({
-    email: '',
-    password: '',
+let ej = ref('');
+
+let form = useForm({
+    rut: ref(''),
+    password:'' ,
     remember: false,
 });
 
@@ -26,12 +30,19 @@ const submit = () => {
     })).post(route('login'), {
         onFinish: () => form.reset('password'),
     });
-};
+}
+
+watch(() => form.rut, (newValue) => {
+    // Convertir el valor a mayúsculas
+    form.rut = newValue.toUpperCase()
+
+}, { immediate: true});
+
 </script>
 
 <template>
+    
     <Head title="Log in" />
-
     <AuthenticationCard>
         <template #logo>
             <AuthenticationCardLogo />
@@ -39,21 +50,22 @@ const submit = () => {
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
+            
         </div>
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="email" value="Email" />
+                <InputLabel for="rut" value="rut" />
                 <TextInput
-                    id="email"
-                    v-model="form.email"
-                    type="email"
+                    id="rut"
+                    v-model="form.rut"
+                    type="text"
                     class="mt-1 block w-full"
                     required
                     autofocus
                     autocomplete="username"
                 />
-                <InputError class="mt-2" :message="form.errors.email" />
+                <InputError class="mt-2" :message="form.errors.rut" />
             </div>
 
             <div class="mt-4">
